@@ -60,10 +60,13 @@
   // TODO: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
   Article.numWordsAll = function() {
     return Article.all.map(function(article) {
-        return // Get the total number of words in this article
+        // Get the total number of words in this article
+        return article.body
+          .split(' ')
+          .length;
       })
       .reduce(function(a, b) {
-        return // Sum up all the values in the collection
+        return a + b;// Sum up all the values in the collection
       });
   };
 
