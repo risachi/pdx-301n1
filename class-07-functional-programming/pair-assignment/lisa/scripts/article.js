@@ -57,7 +57,7 @@
     }
   };
 
-  // TODO: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
+  // DONE: Chain together a `map` and a `reduce` call to get a rough count of all words in all articles.
   Article.numWordsAll = function() {
     return Article.all.map(function(article) {
         // Get the total number of words in this article
@@ -66,14 +66,31 @@
           .length;
       })
       .reduce(function(a, b) {
-        return a + b;// Sum up all the values in the collection
+        console.log(a + b);
+        return a + b; // Sum up all the values in the collection
       });
   };
 
   // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
   Article.allAuthors = function() {
-    return // Don't forget to read the docs on map and reduce!
+    return Article.all.map(function(article) {
+      console.log(article.author);
+      return article.author;
+
+    }).reduce(function(acc, value, index, array) {
+      if ($.inArray(value, article.author) === -1) {
+        console.log(acc);
+        return acc;
+
+      }
+    });
+
   };
+  //
+  // array.reduce(function(acc, value, index, array) {
+  //   // ...
+  //   return acc;
+  // }, initialValue);
 
   Article.numWordsByAuthor = function() {
     // TODO: Transform each author string into an object with 2 properties: One for
