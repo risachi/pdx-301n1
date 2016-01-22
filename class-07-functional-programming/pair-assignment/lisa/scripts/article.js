@@ -74,17 +74,15 @@
   // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
   Article.allAuthors = function() {
     return Article.all.map(function(article) {
-      console.log(article.author);
       return article.author;
-
-    }).reduce(function(acc, value, index, array) {
-      if ($.inArray(value, article.author) === -1) {
-        console.log(acc);
+    }).reduce(function(acc, value) {
+      if ($.inArray(value, Article.author) === -1) {
+        console.log(acc + value);
+        return acc + value;
+      } else {
         return acc;
-
       }
-    });
-
+    });// Don't forget to read the docs on map and reduce!
   };
   //
   // array.reduce(function(acc, value, index, array) {
