@@ -66,23 +66,22 @@
           .length;
       })
       .reduce(function(a, b) {
-        console.log(a + b);
         return a + b; // Sum up all the values in the collection
       });
   };
 
-  // TODO: Chain together a `map` and a `reduce` call to produce an array of unique author names.
+  // DONE: Chain together a `map` and a `reduce` call to produce an array of unique author names.
   Article.allAuthors = function() {
     return Article.all.map(function(article) {
       return article.author;
-    }).reduce(function(acc, value) {
-      if ($.inArray(value, Article.author) === -1) {
-        console.log(acc + value);
-        return acc + value;
+    }).reduce(function(listOfNames, name) {
+      if (listOfNames.indexOf(name) === -1) {
+        console.log(name);
+        return listOfNames.concat([name]);
       } else {
-        return acc;
+        return listOfNames;
       }
-    });// Don't forget to read the docs on map and reduce!
+    }, []);// Don't forget to read the docs on map and reduce!
   };
   //
   // array.reduce(function(acc, value, index, array) {
