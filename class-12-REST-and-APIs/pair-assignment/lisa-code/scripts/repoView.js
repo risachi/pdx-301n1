@@ -11,7 +11,7 @@
 
   // TODO: How do you want to render a single repo as html? Return your filled in HTML template.
   var render = function(repo) {
-    return $('some HTML string');
+    return $('<li>SOME HTML STRING</li>');
   };
 
   // DONE: If all the data is loaded, we can prep the UI and render the repos.
