@@ -3,14 +3,17 @@
 
     repos.all = [];
 
-    repos.requestRepos = function(callback) {
-      // TODO: How would you like to fetch your repos? Don't forget to call the callback.
+    repos.requestRepos = function(viewCallback) {
+      // DONE: How would you like to fetch your repos? Don't forget to call the viewCallback.
       $.ajax({
-        url: 'https://api.github.com/users/brookr/repos',
+        url: 'https://api.github.com/users/dogweather/repos',
         method: "GET",
         headers: { 'Authorization': 'token ' + githubToken }
-      }).done(function() {
-        console.log('.get works!');
+      }).done(function(repoData) {
+        repos.all = repoData;
+        viewCallback();
+      }).fail(function() {
+        console.log('.get fails');
       });
     };
 
