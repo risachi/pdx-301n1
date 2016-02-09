@@ -17,7 +17,7 @@ app.use(express.static('./'));
 
 app.get('*', function(request, response) {
   console.log('New request:', request.url);
-  response.sendFile('index.html', { root: '.' });
+  response.sendFile('index.html', { root: 'class-13-production-deployment/pair-assignment/lisa-code/' });
 });
 
 app.listen(port, function() {
